@@ -1,0 +1,13 @@
+document.querySelectorAll('.accordion-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const accordionContent = button.nextElementSibling;
+
+        button.classList.toggle('active');
+
+        if (button.classList.contains('active')) {
+            accordionContent.classList.add('show');
+        } else {
+            accordionContent.classList.remove('show');
+        }
+    });
+});

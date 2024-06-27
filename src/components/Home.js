@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import FlatCard from './components/FlatCard';
-import About from './components/About';
-import './App.css';
+import FlatCard from './FlatCard';
+import '../App.css';
 
 const Home = () => {
   const [flats, setFlats] = useState([]);
@@ -21,7 +17,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <div className="hero" style={{ backgroundImage: 'url(/photos/background.png)' }}>
         <div className="hero-text">
           <h1>Chez vous, partout et ailleurs</h1>
@@ -36,17 +32,4 @@ const Home = () => {
   );
 }
 
-const App = () => {
-  return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
-    </Router>
-  );
-}
-
-export default App;
+export default Home;
