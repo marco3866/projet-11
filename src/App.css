@@ -48,7 +48,7 @@ nav a.active::after {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: rgb(4, 4, 4); /* Ajouter un trait rouge sous la page active */
+  background-color: rgb(4, 4, 4); /* Ajouter un trait noir sous la page active */
 }
 
 .hero {
@@ -108,18 +108,28 @@ nav a.active::after {
   align-items: center;
   text-align: center;
   max-width: 400px;
+  position: relative; 
 }
 
 .flat-cover {
   width: 100%;
-  height: 200px;
+  height: 100%; 
   object-fit: cover;
+  border-radius: 15px;
 }
 
 .flat-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.5); 
+  text-decoration: none; 
+  border-radius: 10px;
 }
 
 /* Section du footer */
@@ -197,4 +207,191 @@ footer {
 
 .accordion-content.show {
   display: block;
+}
+
+
+/* Styles spécifiques à la page "Flat" */
+.flat-details {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flat-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flat-image-container img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  font-size: 40px;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.photo-count {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+}
+
+.flat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.flat-info-left {
+  flex: 1;
+}
+
+.flat-info-left h1 {
+  font-size: 24px;
+  color: #ff5a5f;
+  margin: 0;
+}
+
+.flat-info-left p {
+  margin: 5px 0 0 0;
+}
+
+.flat-info-right {
+  display: flex;
+  align-items: center;
+}
+
+.host-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.host-info p {
+  margin: 0;
+  color: #ff5a5f;
+}
+
+.host-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.flat-notifications {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.notification {
+  background-color: #ff5a5f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.flat-rating {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.star {
+  font-size: 20px;
+  color: #ff5a5f;
+}
+
+.flat-description {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.accordion-button {
+  flex: 1;
+  text-align: left;
+  background-color: #ff5a5f;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+}
+
+.accordion-button:focus {
+  outline: none;
+}
+
+.accordion-button::after {
+  content: '\25bc';
+  float: right;
+}
+
+.accordion-button.active::after {
+  content: '\25b2';
+}
+
+.accordion-content {
+  display: none;
+  padding: 20px;
+  font-size: 14px;
+  color: #333;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 10px 10px;
+}
+
+.accordion-content.show {
+  display: block;
+}
+
+/* Aligner les accordéons côte à côte */
+.accordion-contents {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.accordion-content {
+  flex: 1;
+  margin: 5px;
+  border-radius: 15px; /* Ajout d'arrondis */
+}
+
+.accordion-content ul {
+  list-style: none; /* Enlever les points de la liste */
+  padding: 0;
 }

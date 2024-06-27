@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FlatCard from './components/FlatCard';
+import Flat from './components/Flat';
 import About from './components/About';
 import './App.css';
 
-const Home = () => {
+const App = () => {
   const [flats, setFlats] = useState([]);
 
   useEffect(() => {
@@ -21,30 +22,29 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="App">
-      <div className="hero" style={{ backgroundImage: 'url(/photos/background.png)' }}>
-        <div className="hero-text">
-          <h1>Chez vous, partout et ailleurs</h1>
-        </div>
-      </div>
-      <div className="gallery">
-        {flats.map(flat => (
-          <FlatCard key={flat.id} title={flat.title} cover={flat.cover} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-const App = () => {
-  return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-      <Footer />
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={
+            <div>
+              <div className="hero" style={{ backgroundImage: 'url(/photos/background.png)' }}>
+                <div className="hero-text">
+                  <h1>Chez vous, partout et ailleurs</h1>
+                </div>
+              </div>
+              <div className="gallery">
+                {flats.map(flat => (
+                  <FlatCard key={flat.id} id={flat.id} title={flat.title} cover={flat.cover} />
+                ))}
+              </div>
+            </div>
+          } />
+          <Route path="/flat/:id" element={<Flat />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+        <Footer />
+      </div>
     </Router>
   );
 }
