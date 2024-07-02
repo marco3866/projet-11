@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import FlatCard from '../components/FlatCard/FlatCard';
-import Banner from '../components/Banner/Banner';
+import FlatCard from '../../components/FlatCard/FlatCard';
+import Banner from '../../components/Banner/Banner';
 import './Home.css';
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <div>
-      <Banner backgroundImage="/photos/background.png" title="Chez vous, partout et ailleurs" />
+      <Banner imageUrl="/photos/background.png" title="Chez vous, partout et ailleurs" />
       <div className="gallery">
         {flats.map(flat => (
           <FlatCard key={flat.id} id={flat.id} title={flat.title} cover={flat.cover} />
@@ -27,6 +27,6 @@ const Home = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;

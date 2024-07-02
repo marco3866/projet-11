@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import FlatCard from './components/FlatCard/FlatCard';
 import Flat from './page/Flat/Flat';
 import About from './page/About/About';
+import Home from './page/Home/Home';
 import NotFound from './page/NotFound/NotFound';
 import './App.css';
 
@@ -27,20 +27,7 @@ const App = () => {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/" element={
-            <div>
-              <div className="hero" style={{ backgroundImage: 'url(/photos/background.png)' }}>
-                <div className="hero-text">
-                  <h1>Chez vous, partout et ailleurs</h1>
-                </div>
-              </div>
-              <div className="gallery">
-                {flats.map(flat => (
-                  <FlatCard key={flat.id} id={flat.id} title={flat.title} cover={flat.cover} />
-                ))}
-              </div>
-            </div>
-          } />
+          <Route path="/" element={<Home flats={flats} />} />
           <Route path="/flat/:id" element={<Flat />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} /> {/* Route pour la page 404 */}

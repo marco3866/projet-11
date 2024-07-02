@@ -6,7 +6,7 @@ import './About.css';
 const About = () => {
   return (
     <div>
-      <Banner backgroundImage="/photos/backgroundapropos.png" title="" />
+      <Banner imageUrl="/photos/backgroundapropos.png" title="" />
       <main>
         <section className="about-section">
           <Accordion>
