@@ -1,6 +1,6 @@
 import React from 'react'; // Importation de React pour créer des composants
 import { Link } from 'react-router-dom'; // Importation de Link de react-router-dom pour la navigation interne
-import '../App.css'; // Importation du fichier CSS global de l'application
+import './FlatCard.css'; // Importation du fichier CSS spécifique pour le composant FlatCard
 
 // Composant fonctionnel FlatCard
 const FlatCard = ({ id, title, cover }) => {
@@ -16,3 +16,4 @@ const FlatCard = ({ id, title, cover }) => {
 
 // Exportation du composant FlatCard pour être utilisé dans d'autres parties de l'application
 export default FlatCard;
+

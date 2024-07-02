@@ -1,54 +1,49 @@
-import React, { useState, useEffect } from 'react'; // Importation de React et des hooks useState et useEffect pour gérer l'état et les effets de bord
-import { useParams } from 'react-router-dom'; // Importation du hook useParams de react-router-dom pour accéder aux paramètres de l'URL
-import axios from 'axios'; // Importation d'axios pour effectuer des requêtes HTTP
-import '../App.css'; // Importation du fichier CSS global de l'application
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import './Flat.css';
 
 const Flat = () => {
-    const { id } = useParams(); // Extraction de l'ID du flat à partir des paramètres de l'URL
-    const [flat, setFlat] = useState(null); // État pour stocker les données du flat
-    const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0); // État pour suivre l'index de la photo actuelle dans le carrousel
+    const { id } = useParams();
+    const [flat, setFlat] = useState(null);
+    const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
-    // useEffect pour récupérer les données du flat depuis un fichier JSON
     useEffect(() => {
         axios.get('/flats.json')
             .then(response => {
-                const flat = response.data.find(flat => flat.id === id); // Recherche du flat correspondant à l'ID dans les données
-                setFlat(flat); // Mise à jour de l'état avec les données du flat
+                const flat = response.data.find(flat => flat.id === id);
+                setFlat(flat);
             })
             .catch(error => {
-                console.error("There was an error fetching the flat data!", error); // Gestion des erreurs lors de la requête
+                console.error("There was an error fetching the flat data!", error);
             });
-    }, [id]); // Ce useEffect se déclenche lorsque l'ID change
+    }, [id]);
 
-    // useEffect pour gérer le carrousel de photos
     useEffect(() => {
-        if (!flat) return; // Si les données du flat ne sont pas encore chargées, ne rien faire
+        if (flat) {
+            const interval = setInterval(() => {
+                setCurrentPhotoIndex((prevIndex) => (prevIndex + 1) % flat.pictures.length);
+            }, 3000); // 3 seconds pause
 
-        const interval = setInterval(() => {
-            setCurrentPhotoIndex((prevIndex) => (prevIndex + 1) % flat.pictures.length); // Changement de photo toutes les 3 secondes
-        }, 3000); // 3 secondes de pause entre les changements de photos
+            return () => clearInterval(interval);
+        }
+    }, [flat]);
 
-        return () => clearInterval(interval); // Nettoyage de l'intervalle lorsque le composant est démonté ou lorsque flat change
-    }, [flat]); // Ce useEffect se déclenche lorsque flat change
-
-    // Gestion du clic sur le bouton "précédent" du carrousel
     const handlePrevClick = () => {
         setCurrentPhotoIndex((prevIndex) => (prevIndex - 1 + flat.pictures.length) % flat.pictures.length);
     };
 
-    // Gestion du clic sur le bouton "suivant" du carrousel
     const handleNextClick = () => {
         setCurrentPhotoIndex((prevIndex) => (prevIndex + 1) % flat.pictures.length);
     };
 
     if (!flat) {
-        return <div>Loading...</div>; // Affichage d'un message de chargement tant que les données du flat ne sont pas disponibles
+        return <div>Loading...</div>;
     }
 
-    // Gestion du clic sur les boutons d'accordéon
     const handleAccordionClick = (contentId) => {
-        const content = document.getElementById(contentId); // Récupération de l'élément correspondant à l'ID
-        content.classList.toggle('show'); // Bascule de la classe 'show' pour afficher/masquer le contenu
+        const content = document.getElementById(contentId);
+        content.classList.toggle('show');
     };
 
     return (

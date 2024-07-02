@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import FlatCard from './FlatCard';
-import '../App.css';
+import FlatCard from '../components/FlatCard/FlatCard';
+import Banner from '../components/Banner/Banner';
+import './Home.css';
 
 const Home = () => {
   const [flats, setFlats] = useState([]);
@@ -18,14 +19,10 @@ const Home = () => {
 
   return (
     <div>
-      <div className="hero" style={{ backgroundImage: 'url(/photos/background.png)' }}>
-        <div className="hero-text">
-          <h1>Chez vous, partout et ailleurs</h1>
-        </div>
-      </div>
+      <Banner backgroundImage="/photos/background.png" title="Chez vous, partout et ailleurs" />
       <div className="gallery">
         {flats.map(flat => (
-          <FlatCard key={flat.id} title={flat.title} cover={flat.cover} />
+          <FlatCard key={flat.id} id={flat.id} title={flat.title} cover={flat.cover} />
         ))}
       </div>
     </div>

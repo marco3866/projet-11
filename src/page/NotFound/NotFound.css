@@ -1,0 +1,23 @@
+.error-page {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.error-page h1 {
+    font-size: 100px;
+    color: #ff5a5f;
+    margin: 0;
+}
+
+.error-page p {
+    font-size: 24px;
+    color: #333;
+}
+
+.error-page a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff5a5f;
+    text-decoration: none;
+}

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'; // Importation des hooks React
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importation des composants de react-router-dom
-import axios from 'axios'; // Importation d'axios pour les requêtes HTTP
-import Header from './components/Header'; // Importation du composant Header
-import Footer from './components/Footer'; // Importation du composant Footer
-import FlatCard from './components/FlatCard'; // Importation du composant FlatCard
-import Flat from './components/Flat'; // Importation du composant Flat
-import About from './components/About'; // Importation du composant About
-import NotFound from './components/NotFound'; // Importation du composant NotFound
-import './App.css'; // Importation des styles CSS
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import FlatCard from './components/FlatCard/FlatCard';
+import Flat from './page/Flat/Flat';
+import About from './page/About/About';
+import NotFound from './page/NotFound/NotFound';
+import './App.css';
 
 const App = () => {
   const [flats, setFlats] = useState([]);

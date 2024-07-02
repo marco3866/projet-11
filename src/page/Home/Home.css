@@ -1,0 +1,38 @@
+.gallery {
+  background-color: #f0f0f0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px;
+  border-radius: 15px;
+}
+
+.flat-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+  flex: 1 1 calc(33.333% - 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 400px;
+}
+
+.flat-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.flat-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
