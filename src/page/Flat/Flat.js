@@ -24,6 +24,23 @@ const Flat = () => {
     return <div>Loading...</div>;
   }
 
+  const items = [
+    {
+      title: "Description",
+      content: <p>{flat.description}</p>
+    },
+    {
+      title: "Équipements",
+      content: (
+        <ul>
+          {flat.equipments.map((equipment, index) => (
+            <li key={index}>{equipment}</li>
+          ))}
+        </ul>
+      )
+    }
+  ];
+
   return (
     <div className="Flat">
       <main>
@@ -52,26 +69,7 @@ const Flat = () => {
             </div>
           </div>
           <section className="flat-section">
-            <div className="flat-accordion-container">
-              <div className="flat-accordion-item">
-                <Accordion>
-                  <div title="Description">
-                    <p>{flat.description}</p>
-                  </div>
-                </Accordion>
-              </div>
-              <div className="flat-accordion-item">
-                <Accordion>
-                  <div title="Équipements">
-                    <ul>
-                      {flat.equipments.map((equipment, index) => (
-                        <li key={index}>{equipment}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </Accordion>
-              </div>
-            </div>
+            <Accordion origin="flat" items={items} alignment="flat" />
           </section>
         </section>
       </main>

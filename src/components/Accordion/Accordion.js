@@ -1,7 +1,7 @@
 import React from 'react';
 import './Accordion.css';
 
-const Accordion = ({ children, customClass }) => {
+const Accordion = ({ origin, items, alignment }) => {
   const handleAccordionClick = (e) => {
     const button = e.currentTarget;
     const content = button.nextElementSibling;
@@ -14,13 +14,13 @@ const Accordion = ({ children, customClass }) => {
   };
 
   return (
-    <div className={`accordion ${customClass}`}>
-      {React.Children.map(children, (child) => (
-        <div className="accordion-item">
+    <div className={`accordion ${origin} ${alignment}`}>
+      {items.map((item, index) => (
+        <div className="accordion-item" key={index}>
           <button className="accordion-button" onClick={handleAccordionClick}>
-            {child.props.title}
+            {item.title}
           </button>
-          <div className="accordion-content">{child.props.children}</div>
+          <div className="accordion-content">{item.content}</div>
         </div>
       ))}
     </div>

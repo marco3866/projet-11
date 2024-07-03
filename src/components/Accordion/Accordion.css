@@ -1,6 +1,8 @@
-.accordion {
+.accordion.flat {
+  display: flex;
+  justify-content: space-between;
+  gap: 10%;
   width: 100%;
-  margin: 0 auto;
 }
 
 .accordion-item {
@@ -8,6 +10,10 @@
   border-radius: 10px;
   margin-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordion.flat .accordion-item {
+  width: 45%; /* Chaque accordion prend 45% de la largeur disponible */
 }
 
 .accordion-button {
@@ -49,22 +55,4 @@
 
 .accordion-content.show {
   display: block;
-}
-
-/* Flat section styles */
-.flat-section {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  gap: 10%;
-}
-
-.flat-accordion-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.flat-accordion-item {
-  width: 45%;
 }
