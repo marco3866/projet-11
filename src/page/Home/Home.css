@@ -8,3 +8,10 @@
   border-radius: 15px;
 }
 
+
+/* Mobile view: make the flat-card take full width */
+@media (max-width: 600px) {
+  .flat-card {
+    flex: 1 1 100%;
+  }
+}

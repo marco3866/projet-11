@@ -56,3 +56,15 @@
 .accordion-content.show {
   display: block;
 }
+
+
+/* Mobile view: stack accordions vertically */
+@media (max-width: 600px) {
+  .accordion.flat {
+    flex-direction: column;
+    gap: 10px; /* Ajoutez un écart entre les éléments */
+  }
+  .accordion.flat .accordion-item {
+    width: 100%; /* Chaque accordion prend 100% de la largeur disponible */
+  }
+}
