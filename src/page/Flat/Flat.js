@@ -54,10 +54,10 @@ const Flat = () => {
               <h1 id="flat-title">{flat.title}</h1>
               <p id="flat-location">{flat.location}</p>
             </div>
-            <div className="flat-info-right">
+            <div className="flat-info-right desktop-only">
               <div className="host-info">
-                <p id="host-name">{flat.host.name}</p>
                 <img src={flat.host.picture} alt="Host" id="host-image" />
+                <p id="host-name">{flat.host.name}</p>
               </div>
             </div>
           </div>
@@ -65,7 +65,16 @@ const Flat = () => {
             {flat.tags.map((tag, index) => (
               <div key={index} className="notification">{tag}</div>
             ))}
-            <div className="flat-rating" id="flat-rating">
+            <div className="flat-rating desktop-only" id="flat-rating">
+              {[...Array(5)].map((star, index) => (
+                <span key={index} className="star">{index < flat.rating ? '★' : '☆'}</span>
+              ))}
+            </div>
+            <div className="host-info mobile-only">
+              <img src={flat.host.picture} alt="Host" id="host-image" />
+              <p id="host-name">{flat.host.name}</p>
+            </div>
+            <div className="flat-rating mobile-only" id="flat-rating">
               {[...Array(5)].map((star, index) => (
                 <span key={index} className="star">{index < flat.rating ? '★' : '☆'}</span>
               ))}

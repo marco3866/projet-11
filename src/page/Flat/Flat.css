@@ -38,7 +38,7 @@
 
 .host-info p {
   margin: 0;
-  color: #ff5a5f;
+  color: black; /* Change the text color to black */
 }
 
 .host-info img {
@@ -96,4 +96,74 @@
   width: 45%;
 }
 
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+  .flat-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
+  .flat-info-right {
+    display: none; /* Hide the desktop host-info */
+  }
+
+  .flat-rating.desktop-only {
+    display: none; /* Hide the desktop rating on mobile */
+  }
+
+  .flat-rating.mobile-only {
+    order: 1;
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+  .flat-notifications {
+    order: 2;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .accordion-button {
+    width: 100%;
+  }
+
+  .flat-accordion-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .flat-accordion-item {
+    width: 100%;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .host-info.mobile-only {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    width: auto;
+    order: 3; /* Ensure it is after notifications and rating */
+  }
+
+  .host-info.mobile-only img,
+  .host-info.mobile-only p {
+    order: unset; /* Reset the order for mobile view */
+  }
+}
+
+@media (min-width: 601px) {
+  .mobile-only {
+    display: none; /* Hide the mobile host-info on larger screens */
+  }
+}

@@ -1,26 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Accordion.css';
 
 const Accordion = ({ origin, items, alignment }) => {
-  const handleAccordionClick = (e) => {
-    const button = e.currentTarget;
-    const content = button.nextElementSibling;
-    button.classList.toggle('active');
-    if (button.classList.contains('active')) {
-      content.classList.add('show');
-    } else {
-      content.classList.remove('show');
-    }
+  const [openIndexes, setOpenIndexes] = useState([]);
+
+  const handleAccordionClick = (index) => {
+    setOpenIndexes((prevIndexes) => {
+      if (prevIndexes.includes(index)) {
+        return prevIndexes.filter((i) => i !== index);
+      } else {
+        return [...prevIndexes, index];
+      }
+    });
   };
 
   return (
     <div className={`accordion ${origin} ${alignment}`}>
       {items.map((item, index) => (
         <div className="accordion-item" key={index}>
-          <button className="accordion-button" onClick={handleAccordionClick}>
+          <button
+            className={`accordion-button ${openIndexes.includes(index) ? 'active' : ''}`}
+            onClick={() => handleAccordionClick(index)}
+          >
             {item.title}
           </button>
-          <div className="accordion-content">{item.content}</div>
+          <div className={`accordion-content ${openIndexes.includes(index) ? 'show' : ''}`}>
+            {item.content}
+          </div>
         </div>
       ))}
     </div>

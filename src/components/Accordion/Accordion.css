@@ -9,7 +9,7 @@
   background-color: white;
   border-radius: 10px;
   margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 .accordion.flat .accordion-item {
@@ -57,6 +57,13 @@
   display: block;
 }
 
+.accordion-item.first .accordion-content.show + .accordion-item .accordion-content {
+  border-left: none;
+}
+
+.accordion-item.second .accordion-content.show + .accordion-item .accordion-content {
+  border-right: none;
+}
 
 /* Mobile view: stack accordions vertically */
 @media (max-width: 600px) {
