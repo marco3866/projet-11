@@ -23,9 +23,13 @@ const Carousel = ({ pictures }) => {
   return (
     <div className="carousel">
       <div className="flat-image-container">
-        <button className="carousel-button prev" onClick={handlePrevClick}>❮</button>
+        {pictures.length > 1 && (
+          <button className="carousel-button prev" onClick={handlePrevClick}>❮</button>
+        )}
         <img src={pictures[currentPhotoIndex]} alt="Flat" className="carousel-image" />
-        <button className="carousel-button next" onClick={handleNextClick}>❯</button>
+        {pictures.length > 1 && (
+          <button className="carousel-button next" onClick={handleNextClick}>❯</button>
+        )}
         <div className="photo-count">{currentPhotoIndex + 1}/{pictures.length}</div>
       </div>
     </div>
