@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { getFlats } from '../../utils/api';
 import Accordion from '../../components/Accordion/Accordion';
 import Carousel from '../../components/Carousel/Carousel';
 import './Flat.css';
@@ -10,14 +10,17 @@ const Flat = () => {
   const [flat, setFlat] = useState(null);
 
   useEffect(() => {
-    axios.get('/flats.json')
-      .then(response => {
-        const flat = response.data.find(flat => flat.id === id);
+    const fetchFlats = async () => {
+      try {
+        const data = await getFlats();
+        const flat = data.find(flat => flat.id === id);
         setFlat(flat);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error("There was an error fetching the flat data!", error);
-      });
+      }
+    };
+
+    fetchFlats();
   }, [id]);
 
   if (!flat) {
