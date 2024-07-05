@@ -1,5 +1,5 @@
 import React from 'react'; // Importation de React pour créer des composants
-import './Footer.css'; // Importation du fichier CSS spécifique pour le composant Footer
+import './Footer.sass'; // Importation du fichier CSS spécifique pour le composant Footer
 
 // Composant fonctionnel Footer
 const Footer = () => (

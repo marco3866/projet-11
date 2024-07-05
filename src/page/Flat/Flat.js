@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getFlats } from '../../utils/api';
 import Accordion from '../../components/Accordion/Accordion';
 import Carousel from '../../components/Carousel/Carousel';
-import './Flat.css';
+import './Flat.sass';
 
 const Flat = () => {
   const { id } = useParams();

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Accordion.css';
+import './Accordion.sass';
 
 const Accordion = ({ origin, items, alignment }) => {
   const [openIndexes, setOpenIndexes] = useState([]);

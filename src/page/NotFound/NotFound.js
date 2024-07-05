@@ -1,6 +1,6 @@
 import React from 'react'; // Importation de React pour créer des composants
 import { Link } from 'react-router-dom'; // Importation de Link de react-router-dom pour la navigation interne
-import './NotFound.css'; // Importation du fichier CSS spécifique à NotFound
+import './NotFound.sass'; // Importation du fichier CSS spécifique à NotFound
 
 // Composant fonctionnel NotFound
 const NotFound = () => {

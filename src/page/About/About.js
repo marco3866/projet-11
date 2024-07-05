@@ -1,7 +1,7 @@
 import React from 'react';
 import Accordion from '../../components/Accordion/Accordion';
 import Banner from '../../components/Banner/Banner';
-import './About.css';
+import './About.sass';
 
 const About = () => {
   const items = [

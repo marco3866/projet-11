@@ -1,6 +1,6 @@
 import React from 'react'; // Importation de React pour créer des composants
 import { NavLink } from 'react-router-dom'; // Importation de NavLink de react-router-dom pour la navigation avec gestion des états actifs
-import './Header.css'; // Importation du fichier CSS spécifique pour le composant Header
+import './Header.sass'; // Importation du fichier CSS spécifique pour le composant Header
 
 // Composant fonctionnel Header
 const Header = () => {

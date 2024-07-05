@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getFlats } from '../../utils/api';
 import FlatCard from '../../components/FlatCard/FlatCard';
 import Banner from '../../components/Banner/Banner';
-import './Home.css';
+import './Home.sass';
 
 const Home = () => {
   const [flats, setFlats] = useState([]);

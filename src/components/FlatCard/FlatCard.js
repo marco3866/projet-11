@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './FlatCard.css';
+import './FlatCard.sass';
 
 const FlatCard = ({ id, title, cover }) => {
     return (

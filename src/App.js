@@ -7,7 +7,7 @@ import About from './page/About/About';
 import Home from './page/Home/Home';
 import NotFound from './page/NotFound/NotFound';
 import { getFlats } from './utils/api';
-import './App.css';
+import './App.sass';
 
 const App = () => {
   const [flats, setFlats] = useState([]);

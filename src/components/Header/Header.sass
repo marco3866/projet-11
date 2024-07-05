@@ -1,0 +1,57 @@
+header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 20px
+  background-color: white
+
+.logo img
+  height: 80px /* Taille ajustée pour le logo */
+
+nav ul
+  list-style: none
+  display: flex
+  margin: 0
+  padding: 0
+  gap: 50px /* Espace entre les éléments du menu */
+
+nav li
+  margin-left: 20px
+  position: relative
+
+nav a
+  text-decoration: none
+  color: black
+
+nav a.active
+  color: black
+
+nav a.active::after
+  content: ''
+  position: absolute
+  bottom: -2px
+  left: 0
+  width: 100%
+  height: 2px
+  background-color: black
+
+/* Mobile view adjustments */
+@media (max-width: 600px)
+  header
+    flex-direction: row /* Garder la direction du flex en ligne */
+    justify-content: space-between /* Espacer les éléments sur toute la largeur */
+    align-items: center
+
+  .logo img
+    height: 50px /* Ajuster la hauteur du logo pour mobile */
+
+  nav ul
+    flex-direction: row /* Garder les éléments de menu en ligne */
+    gap: 5px /* Réduire l'écart entre les éléments du menu */
+
+  nav li
+    margin-left: 0 /* Enlever la marge gauche pour mobile */
+
+  nav a
+    display: block /* Faire en sorte que les liens prennent toute la largeur */
+    padding: 10px /* Ajouter du padding pour espacer les liens */
