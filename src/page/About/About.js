@@ -33,9 +33,13 @@ const About = () => {
 
   return (
     <div>
+      {/* Affichage de la bannière sans titre mais avec une image de fond. Le titre est laissé vide ici. */}
       <Banner imageUrl="/photos/backgroundapropos.png" title="" />
+      {/* Section principale de la page contenant l'Accordion. */}
       <main>
         <section className="about-section">
+          {/* Utilisation du composant Accordion pour afficher les valeurs de l'entreprise de manière interactive. 
+              'origin' est utilisé ici pour ajouter une classe CSS spécifique pour le style. */}
           <Accordion origin="about" items={items} />
         </section>
       </main>

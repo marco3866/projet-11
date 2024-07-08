@@ -1,29 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getFlats } from '../../utils/api';
-import Accordion from '../../components/Accordion/Accordion';
-import Carousel from '../../components/Carousel/Carousel';
-import './Flat.sass';
+import React, { useState, useEffect } from 'react'; // Importe useState et useEffect pour gérer l'état local et les effets de bord.
+import { useParams, useNavigate } from 'react-router-dom'; // Importe useParams pour accéder aux paramètres de l'URL et useNavigate pour la navigation.
+import { getFlats } from '../../utils/api'; // Importe une fonction d'API pour récupérer les données des logements.
+import Accordion from '../../components/Accordion/Accordion'; // Importe le composant Accordion pour afficher des sections pliables.
+import Carousel from '../../components/Carousel/Carousel'; // Importe le composant Carousel pour afficher un carrousel d'images.
+import './Flat.sass'; // Importe les styles CSS spécifiques à cette page.
 
 const Flat = () => {
-  const { id } = useParams();
-  const [flat, setFlat] = useState(null);
+  const { id } = useParams(); // Récupère l'ID du logement à partir de l'URL.
+  const navigate = useNavigate(); // Utilise useNavigate pour la navigation.
+  const [flat, setFlat] = useState(null); // Initialise l'état 'flat' à null.
+  const [loading, setLoading] = useState(true); // État pour gérer le chargement.
 
   useEffect(() => {
+    // Effectue un effet de bord après le montage du composant pour récupérer les données.
     const fetchFlats = async () => {
       try {
-        const data = await getFlats();
-        const flat = data.find(flat => flat.id === id);
-        setFlat(flat);
+        const data = await getFlats(); // Appelle getFlats pour obtenir les données des logements.
+        const flat = data.find(flat => flat.id === id); // Trouve le logement spécifique par son ID.
+        if (!flat) {
+          // Si le logement n'est pas trouvé, redirige vers la page 404.
+          navigate('/404');
+        } else {
+          setFlat(flat); // Met à jour l'état 'flat' avec les données trouvées.
+        }
       } catch (error) {
-        console.error("There was an error fetching the flat data!", error);
+        console.error("There was an error fetching the flat data!", error); // Gère les erreurs potentielles lors de la récupération des données.
+        navigate('/404'); // En cas d'erreur, redirige vers la page 404.
+      } finally {
+        setLoading(false); // Met à jour l'état de chargement.
       }
     };
 
-    fetchFlats();
-  }, [id]);
+    fetchFlats(); // Appelle fetchFlats pour exécuter la récupération des données.
+  }, [id, navigate]); // L'effet se déclenchera à nouveau si l'ID change.
 
-  if (!flat) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 
